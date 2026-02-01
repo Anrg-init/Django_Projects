@@ -1,0 +1,64 @@
+{% extends "core/base.html" %}
+
+{% block title %}ForMastery{% endblock title %}
+
+{% block leftcontent %}
+
+<div class="col-md-8 mb-4">
+  <div class="card-ui p-4 h-100">
+    <h4>Form</h4>
+
+    <form method="post" enctype="multipart/form-data">
+      {% csrf_token %}
+
+      {% if form.non_field_errors %}
+        {% for error in form.non_field_errors %}
+          <p class="text-danger">{{ error }}</p>
+        {% endfor %}
+      {% endif %}
+
+      {% for x in form %}
+        <div class="form-group">
+          {{ x.label_tag }}
+          {{ x }}
+        </div>
+      {% endfor %}
+
+      <button type="submit" class="mt-2">Submit Form</button>
+    </form>
+
+    {% if messages %}
+      {% for message in messages %}
+        <div class="success-msg">
+          {{ message }}
+        </div>
+      {% endfor %}
+    {% endif %}
+  </div>
+</div>
+
+{% endblock leftcontent %}
+
+{% block rightcontent %}
+
+<div class="col-md-4 mb-4">
+  <div class="card-ui p-4 h-100 candidate-list">
+    <h4>List of Candidate</h4>
+
+    {% for Candidate_list in C_list %}
+      <a href="{% url 'candidate_detail_page' Candidate_list.id %}"
+         class="candidate-item d-flex justify-content-between align-items-center mb-3">
+
+        <span>
+          <strong>{{ Candidate_list.id }}.</strong>
+          {{ Candidate_list.name }}
+        </span>
+
+        <span class="arrow">→</span>
+      </a>
+    {% endfor %}
+  </div>
+</div>
+
+{% endblock rightcontent %}
+

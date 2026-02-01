@@ -1,0 +1,329 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <!-- Bootstrap CSS -->
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/bootstrap@4.4.1/dist/css/bootstrap.min.css"
+      integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh"
+      crossorigin="anonymous"
+    >
+
+    <title>{% block title %}{% endblock title %}</title>
+
+    <!-- Custom UI CSS -->
+ <style>
+  body {
+    min-height: 100vh;
+    font-family: "Segoe UI", sans-serif;
+
+    /* REAL aesthetic background */
+    background: url("https://images.unsplash.com/photo-1519681393784-d120267933ba?auto=format&fit=crop&w=1600&q=80")
+      no-repeat center center fixed;
+    background-size: cover;
+  }
+
+  /* gradient overlay */
+  body::before {
+    content: "";
+    position: fixed;
+    inset: 0;
+    background: linear-gradient(
+      120deg,
+      rgba(10, 10, 30, 0.65),
+      rgba(30, 10, 60, 0.55)
+    );
+    z-index: -1;
+  }
+
+  .main-title {
+    text-align: center;
+    margin-top: 30px;
+    font-weight: 700;
+    font-size: 32px;
+    color: #ffffff;
+    letter-spacing: 1px;
+  }
+
+  /* GLASS CARD */
+  .card-ui {
+    background: rgba(255, 255, 255, 0.15);
+    backdrop-filter: blur(22px);
+    -webkit-backdrop-filter: blur(22px);
+    border-radius: 20px;
+    border: 1px solid rgba(255, 255, 255, 0.25);
+    padding: 30px;
+    color: #ffffff;
+    box-shadow: 0 30px 80px rgba(0, 0, 0, 0.45);
+  }
+
+  .card-ui h4 {
+    font-weight: 600;
+    margin-bottom: 25px;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.25);
+    padding-bottom: 10px;
+  }
+
+  label {
+    font-weight: 500;
+    color: #f0f0ff;
+  }
+
+  input,
+  select,
+  textarea {
+    background: rgba(255, 255, 255, 0.2) !important;
+    border: 1px solid rgba(255, 255, 255, 0.35) !important;
+    color: #ffffff !important;
+    border-radius: 12px !important;
+  }
+
+  input::placeholder {
+    color: #ddd;
+  }
+
+  button {
+    background: linear-gradient(135deg, #7b61ff, #9a8cff);
+    border: none;
+    padding: 12px 36px;
+    border-radius: 12px;
+    font-weight: 600;
+    color: white;
+    transition: 0.3s;
+  }
+
+  button:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 12px 30px rgba(123, 97, 255, 0.6);
+  }
+
+  .candidate-list a {
+    color: #ffffff;
+    font-weight: 500;
+    text-decoration: none;
+  }
+
+  .candidate-list a:hover {
+    text-decoration: underline;
+  }
+
+  .success-msg {
+    background: rgba(0, 255, 180, 0.25);
+    padding: 12px;
+    border-radius: 12px;
+    margin-top: 15px;
+    color: #caffef;
+  }
+
+  .candidate-item {
+  padding: 12px 14px;
+  border-radius: 12px;
+  color: #ffffff;
+  text-decoration: none;
+  transition: 0.25s ease;
+  background: rgba(255, 255, 255, 0.05);
+}
+
+.candidate-item:hover {
+  background: rgba(255, 255, 255, 0.18);
+  transform: translateX(4px);
+}
+
+.candidate-item .arrow {
+  font-size: 18px;
+  opacity: 0.7;
+  transition: 0.25s;
+}
+
+.candidate-item:hover .arrow {
+  opacity: 1;
+  transform: translateX(4px);
+}
+
+/* =============================
+   PROFILE UI — POLISHED VERSION
+============================= */
+
+.profile-card {
+  background: rgba(255, 255, 255, 0.10);
+  backdrop-filter: blur(22px);
+  border-radius: 22px;
+  overflow: hidden;
+  box-shadow: 0 50px 120px rgba(0, 0, 0, 0.6);
+  color: white;
+}
+
+/* HEADER */
+.profile-cover {
+  height: 130px; /* reduced */
+  background: linear-gradient(
+    120deg,
+    #ff9a9e,
+    #fbc2eb,
+    #a18cd1,
+    #84fab0
+  );
+  opacity: 0.9;
+}
+
+/* HEADER CONTENT */
+.profile-header {
+  display: flex;
+  gap: 25px;
+  padding: 0 40px;
+  margin-top: -55px;
+  align-items: center;
+}
+
+/* PROFILE IMAGE */
+.profile-img img {
+  width: 110px;
+  height: 110px;
+  border-radius: 50%;
+  border: 4px solid rgba(255, 255, 255, 0.9);
+  object-fit: cover;
+  background: #fff;
+  box-shadow: 0 15px 40px rgba(0, 0, 0, 0.5);
+}
+
+/* TEXT */
+.profile-info h2 {
+  margin: 0;
+  font-weight: 700;
+  font-size: 26px;
+}
+
+.profile-info .subtitle {
+  opacity: 0.85;
+  margin-top: 4px;
+}
+
+.profile-info .location {
+  opacity: 0.6;
+  font-size: 14px;
+}
+
+/* BUTTONS */
+.profile-actions {
+  margin-top: 14px;
+}
+
+.btn-primary-ui {
+  background: #2563eb;
+  border: none;
+  padding: 8px 22px;
+  border-radius: 10px;
+  color: white;
+  font-weight: 600;
+  margin-right: 10px;
+  box-shadow: 0 10px 30px rgba(37, 99, 235, 0.45);
+}
+
+.btn-outline-ui {
+  background: transparent;
+  border: 1px solid rgba(255, 255, 255, 0.5);
+  padding: 8px 22px;
+  border-radius: 10px;
+  color: white;
+  font-weight: 600;
+}
+
+/* BODY */
+.profile-body {
+  padding: 30px 40px 35px;
+}
+
+/* INFO GRID */
+.info-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(230px, 1fr));
+  gap: 18px;
+}
+
+/* INFO CARD */
+.info-item {
+  background: rgba(255, 255, 255, 0.13);
+  padding: 16px 18px;
+  border-radius: 14px;
+  transition: 0.3s ease;
+  border: 1px solid rgba(255, 255, 255, 0.12);
+}
+
+.info-item:hover {
+  background: rgba(255, 255, 255, 0.18);
+  transform: translateY(-3px);
+}
+
+/* LABEL */
+.info-item span {
+  font-size: 12px;
+  opacity: 0.65;
+  letter-spacing: 0.3px;
+}
+
+/* VALUE */
+.info-item p {
+  margin: 6px 0 0;
+  font-weight: 600;
+  font-size: 15px;
+}
+
+/* BACK BUTTON */
+.btn-back-ui {
+  display: inline-block;
+  margin-top: 30px;
+  color: white;
+  text-decoration: none;
+  font-weight: 600;
+  opacity: 0.8;
+}
+
+.btn-back-ui:hover {
+  opacity: 1;
+  text-decoration: underline;
+}
+
+
+
+</style>
+
+
+  </head>
+
+  <body>
+
+    <h2 class="main-title">Mastering Django Forms</h2>
+
+    <div class="container mt-5">
+      <div class="row">
+
+        {% block leftcontent %}
+        {% endblock leftcontent %}
+
+        {% block rightcontent %}
+        {% endblock rightcontent %}
+
+      </div>
+
+      <br><br><br>
+    </div>
+
+    <!-- JS -->
+    <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js"
+      integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n"
+      crossorigin="anonymous"></script>
+
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js"
+      integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo"
+      crossorigin="anonymous"></script>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.4.1/dist/js/bootstrap.min.js"
+      integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6"
+      crossorigin="anonymous"></script>
+
+  </body>
+</html>

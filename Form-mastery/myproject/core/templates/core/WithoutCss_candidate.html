@@ -1,0 +1,20 @@
+{%extends "core/base.html" %}
+
+{%block leftcontent%} 
+
+<h2> Candidate Details</h2>
+
+<div> 
+
+    <p>Name: {{ Candidate_lst.name }}</p>
+    <p>Email: {{ Candidate_lst.email }}</p> 
+    <p>Name: {{ Candidate_lst.city }}</p>
+    <p>Email: {{ Candidate_lst.location }}</p> 
+    <p>Name: {{ Candidate_lst.gender }}</p>
+    <p>Email: {{ Candidate_lst.profile_image }}</p> 
+
+    <button> <a href="{%url 'homepage' %}"> back to home </a> </button>
+
+</div>
+
+{%endblock leftcontent%}

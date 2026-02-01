@@ -1,0 +1,65 @@
+{% extends "core/base.html" %}
+
+{%block title%} ForMastery {%endblock title%}
+
+
+{%block leftcontent%} 
+
+    <div class="col-md-8">
+                <div class="border rounded p-4 h-100">
+                    <h4 class="mb-3">Form</h4>
+                    <form method="post" enctype="multipart/form-data"
+>
+                        {% csrf_token %}
+                
+                        {%if form.non_field_errors%}
+                        {%for error in form.non_field_errors%} 
+                        {{error}}
+                        {% endfor %}
+                        {%endif%}
+
+                        {%for x in form %} 
+                        <p>{{x.label}}  {{x}} </p> 
+                        <br>
+                        {%endfor%}
+
+                        {% comment %} <p>{{form.name.label}}  {{form.name}} </p>
+                        <p>{{form.dob.label}}  {{form.dob}} </p> {% endcomment %}
+                        
+
+                    <button type='submit'> send </button>
+                    </form>
+
+                    {% if messages %}
+    {% for message in messages %}
+        <p style="color: green;">
+            {{ message }}
+        </p>
+    {% endfor %}
+{% endif %}
+
+                </div>
+    </div>
+
+
+
+
+{%endblock leftcontent%}
+
+
+{%block rightcontent%} 
+
+    <div class="col-md-4">
+                <div class="border rounded p-4 h-100">
+                    <h4 class="mb-3">List of Candidate</h4>
+
+                    <br>
+                    {%for Candidate_list in C_list%}
+                     <p> {{Candidate_list.id}} : <a href="{% url 'candidate_detail_page' Candidate_list.id %} "> {{Candidate_list.name}} </a> </p> 
+                     <br>
+                     <br>
+                    {%endfor%}
+                </div>
+    </div>
+
+{%endblock rightcontent%}

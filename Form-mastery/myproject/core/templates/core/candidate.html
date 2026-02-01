@@ -1,0 +1,83 @@
+{% extends "core/base.html" %}
+
+{% block leftcontent %}
+
+<div class="col-md-10 mx-auto mb-5">
+
+  <!-- PROFILE CARD -->
+  <div class="profile-card">
+
+    <!-- COVER -->
+    <div class="profile-cover"></div>
+
+    <!-- PROFILE HEADER -->
+    <div class="profile-header">
+
+      <div class="profile-img">
+        {% if Candidate_lst.profile_image %}
+          <img src="{{ Candidate_lst.profile_image.url }}" alt="profile">
+        {% else %}
+          <img src="https://cdn-icons-png.flaticon.com/512/149/149071.png">
+        {% endif %}
+      </div>
+
+      <div class="profile-info">
+        <h2>{{ Candidate_lst.name }}</h2>
+        <p class="subtitle">{{ Candidate_lst.job_city }}</p>
+        <p class="location">{{ Candidate_lst.city }}, {{ Candidate_lst.state }}</p>
+
+        <div class="profile-actions">
+          <button class="btn-primary-ui">Edit Profile</button>
+          <button class="btn-outline-ui">Settings</button>
+        </div>
+      </div>
+
+    </div>
+
+    <!-- PROFILE BODY -->
+    <div class="profile-body">
+
+      <div class="info-grid">
+
+        <div class="info-item">
+          <span>Email</span>
+          <p>{{ Candidate_lst.email }}</p>
+        </div>
+
+        <div class="info-item">
+          <span>Mobile</span>
+          <p>{{ Candidate_lst.mobile }}</p>
+        </div>
+
+        <div class="info-item">
+          <span>Gender</span>
+          <p>{{ Candidate_lst.gender }}</p>
+        </div>
+
+        <div class="info-item">
+          <span>Date of Birth</span>
+          <p>{{ Candidate_lst.dob }}</p>
+        </div>
+
+        <div class="info-item">
+          <span>Locality</span>
+          <p>{{ Candidate_lst.locality }}</p>
+        </div>
+
+        <div class="info-item">
+          <span>Pin Code</span>
+          <p>{{ Candidate_lst.pin }}</p>
+        </div>
+
+      </div>
+
+      <div class="text-center mt-4">
+        <a href="{% url 'homepage' %}" class="btn-back-ui">← Back to Home</a>
+      </div>
+
+    </div>
+
+  </div>
+</div>
+
+{% endblock leftcontent %}
