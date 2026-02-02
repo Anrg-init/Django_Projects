@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Activate your account</title>
+</head>
+<body style="font-family: Arial, sans-serif; background-color: #f4f4f4; padding: 20px;">
+
+    <div style="max-width: 600px; margin: auto; background-color: #ffffff; padding: 20px; border-radius: 6px;">
+        
+        <h2 style="color: #333;">Activate Your Account</h2>
+
+        <p>
+            Hi,<br><br>
+            Thank you for registering. Please click the button below to activate your account.
+        </p>
+
+        <p style="text-align: center; margin: 30px 0;">
+            <a href="{{ activation_url }}"
+               style="background-color: #0d6efd; color: #ffffff; padding: 12px 20px;
+                      text-decoration: none; border-radius: 4px; display: inline-block;">
+                Activate Account
+            </a>
+        </p>
+
+        <p>
+            If you did not register, you can safely ignore this email.
+        </p>
+
+        <hr style="margin-top: 30px;">
+
+        <p style="font-size: 12px; color: #777;">
+            © {{ settings.SITE_NAME|default:"Auth System" }}
+        </p>
+
+    </div>
+
+</body>
+</html>
