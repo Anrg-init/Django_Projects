@@ -10,6 +10,9 @@ It covers fundamental Django topics such as:
 - Function-based views
 - Template inheritance
 - Django ORM and database operations
+- Sessions 
+- Cookies
+
 
 The repository also includes **small projects focused on specific Django concepts**, demonstrating how each concept is used in real applications.
 
