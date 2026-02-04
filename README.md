@@ -12,7 +12,7 @@ It covers fundamental Django topics such as:
 - Django ORM and database operations
 - Sessions 
 - Cookies
-
+- Dyanmic URL and PathConvertors
 
 The repository also includes **small projects focused on specific Django concepts**, demonstrating how each concept is used in real applications.
 
