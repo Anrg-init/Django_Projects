@@ -13,6 +13,7 @@ It covers Django topics such as:
 - Sessions 
 - Cookies
 - Dyanmic URL and PathConvertors
+- Caching
 
 The repository also includes **small projects focused on specific Django concepts**, demonstrating how each concept is used in real applications.
 
