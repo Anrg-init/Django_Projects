@@ -1,0 +1,61 @@
+{% extends "core/base.html" %}
+
+{% block title %}Add Book{% endblock %}
+
+{% block content %}
+
+<h2 class="mb-4">Add New Book 📚</h2>
+
+<form method="post">
+    {% csrf_token %}
+
+    <!-- 🔹 Title -->
+    <div class="mb-3">
+        <label class="form-label">Title</label>
+        {{ form.title }}
+    </div>
+
+    <!-- 🔹 Author -->
+    <div class="mb-3">
+        <label class="form-label">Author</label>
+        {{ form.author }}
+    </div>
+
+    <!-- 🔹 Description -->
+    <div class="mb-3">
+        <label class="form-label">Description</label>
+        {{ form.description }}
+    </div>
+
+    <!-- 🔹 Genre -->
+    <div class="mb-3">
+        <label class="form-label">Genre</label>
+        {{ form.genre }}
+    </div>
+
+    <!-- 🔹 ISBN -->
+    <div class="mb-3">
+        <label class="form-label">ISBN</label>
+        {{ form.isbn }}
+    </div>
+
+    <!-- 🔹 Publication Date -->
+    <div class="mb-3">
+        <label class="form-label">Publication Date</label>
+        {{ form.publication_date }}
+    </div>
+
+    <!-- 🔥 Submit Button -->
+    <button type="submit" class="btn btn-primary">
+        Save Book
+    </button>
+
+    <a href="/books/" class="btn btn-secondary">
+        Cancel
+    </a>
+
+    
+
+</form>
+
+{% endblock %}

@@ -1,0 +1,4 @@
+per site caching: 
+- file system caching
+- local memory caching
+- database caching

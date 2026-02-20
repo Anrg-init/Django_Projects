@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+{%load customfilter%}
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1> heyyy </h1>
+    <h3> {{data}} </h3>
+    <h3> {{data | truncatechars:5}} </h3>
+    <h3> {{data | upper}} </h3>
+    <h3> {{data |pucfilter:"key"}} </h3>
+
+</body>
+</html>

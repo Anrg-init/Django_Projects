@@ -1,0 +1,87 @@
+Project & App Setup
+
+startproject <name> — Create a new Django project
+
+startapp <name> — Create a new app inside project
+
+▶️ Run & Development
+
+runserver — Start development server
+
+runserver 0.0.0.0:8000 — Allow access from other devices (LAN)
+
+shell — Open Django Python shell
+
+shell_plus — (django-extensions) Enhanced shell
+
+🗄️ Database & Migrations
+
+makemigrations — Create migration files from models
+
+migrate — Apply migrations to database
+
+showmigrations — Show migration status
+
+sqlmigrate <app> <migration> — Show SQL of a migration
+
+dbshell — Open DB shell (psql/sqlite/mysql)
+
+👤 Authentication / Admin
+
+createsuperuser — Create admin user
+
+📦 Static & Media
+
+collectstatic — Gather static files for production
+
+🔍 Inspect & Debug
+
+check — Check project for issues
+
+diffsettings — Show changed settings vs default
+
+inspectdb — Generate models from existing DB
+
+findstatic <file> — Locate static file
+
+🧪 Testing
+
+test — Run tests
+
+🗑️ Data & Fixtures
+
+dumpdata — Export data (JSON/XML)
+
+loaddata — Import data from fixture
+
+📜 Custom Commands
+
+help — List all commands
+
+help <command> — Detailed help for one command
+
+🏗️ Production Utilities
+
+compilemessages — Compile translation files
+
+makemessages — Create translation files
+
+flush — Clear database (keeps tables)
+
+✅ Most used daily (Top 8):
+
+runserver
+
+makemigrations
+
+migrate
+
+createsuperuser
+
+startapp
+
+shell
+
+collectstatic
+
+check

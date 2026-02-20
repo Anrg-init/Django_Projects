@@ -1,0 +1,6 @@
+asgiref==3.11.1
+click==8.3.1
+Django==6.0.2
+h11==0.16.0
+sqlparse==0.5.5
+uvicorn==0.40.0

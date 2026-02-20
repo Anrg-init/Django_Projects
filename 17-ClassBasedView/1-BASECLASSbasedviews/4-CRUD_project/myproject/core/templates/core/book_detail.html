@@ -1,0 +1,61 @@
+{% extends "core/base.html" %}
+
+{% block title %}Book Details{% endblock %}
+
+{% block content %}
+
+<h2 class="mb-4">Book Details 📖</h2>
+
+<div class="card shadow-sm">
+
+    
+
+    <div class="card-body">
+
+        <h3 class="card-title">{{ books.title }}</h3>
+
+        <p class="mb-2">
+            <strong>Author:</strong> {{ books.author }}
+        </p>
+
+        <p class="mb-2">
+            <strong>Genre:</strong> {{ books.genre }}
+        </p>
+
+        <p class="mb-2">
+            <strong>ISBN:</strong> {{ books.isbn }}
+        </p>
+
+        <p class="mb-2">
+            <strong>Publication Date:</strong> {{ books.publication_date }}
+        </p>
+
+        <hr>
+
+        <p>
+            <strong>Description:</strong><br>
+            {{ books.description }}
+        </p>
+
+    </div>
+
+    <!-- 🔥 Buttons -->
+    <div class="card-footer text-center">
+
+        <a href="{% url 'book-list' %}" class="btn btn-secondary">
+            Back to List
+        </a>
+
+        <a href="{% url 'book-update' books.pk %}" class="btn btn-warning">
+            Edit
+        </a>
+
+        <a href="{% url 'book-delete' books.pk %}" class="btn btn-danger">
+            Delete
+        </a>
+
+    </div>
+
+</div>
+
+{% endblock %}

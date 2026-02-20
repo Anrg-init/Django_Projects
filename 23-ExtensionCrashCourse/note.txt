@@ -1,0 +1,1 @@
+inlucdes content about the django extensions crash course

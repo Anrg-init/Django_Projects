@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Webpage Title</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <!-- Your content goes here -->
+
+
+    <h2>Student List</h2>
+
+    {%for student in object_list%}
+
+    {{student.name}}
+    {{student.age}}
+    {{student.city}}
+
+    <br>
+    <br>
+    
+    {%endfor%}
+
+
+
+
+
+    <script src="script.js"></script>
+</body>
+</html>

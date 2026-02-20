@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Students Table</title>
+    <style>
+        table {
+            border-collapse: collapse;
+            width: 70%;
+        }
+        th, td {
+            border: 1px solid black;
+            padding: 8px;
+            text-align: center;
+        }
+        th {
+            background: #f2f2f2;
+        }
+    </style>
+</head>
+<body>
+
+<h2>Student – Teacher Data</h2>
+
+<table>
+    <tr>
+        <th>ID</th>
+        <th>Student Name</th>
+        <th>Age</th>
+        <th>Teacher</th>
+        <th>Subject</th>
+    </tr>
+
+    {% for student in students %}
+    <tr>
+        <td>{{ student.id }}</td>
+        <td>{{ student.name }}</td>
+        <td>{{ student.age }}</td>
+        <td>{{ student.teacher.name }}</td>
+        <td>{{ student.teacher.subject }}</td>
+    </tr>
+    {% endfor %}
+</table>
+
+</body>
+</html>

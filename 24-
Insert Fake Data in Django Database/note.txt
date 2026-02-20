@@ -1,0 +1,2 @@
+inserting fake data in django databse using faker extensions
+
